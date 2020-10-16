@@ -6,11 +6,12 @@
 #include <stdlib.h>
 
 #include "serial.h"
+#include "testing.h"
+
+#define F_CPU 16000000
 
 void main (void) {
 
-}
-
-void loop(){
-    
+    // Blink led function
+    blinkLed();
 }
