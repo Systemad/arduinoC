@@ -21,10 +21,13 @@ void uart_init(void){
 
 void uart_putchar(char chr){
 	while(! (UCSR0A & (1 << UDRE0)));
-    
-    while(1){
-        UDR0 = chr;
-        _delay_ms(1000);
+    UDR0 = chr;
+}
+
+void uart_putstr(const char *str){
+    for (int i = 0; str[i] != '\0'; i++){ 
+        uart_putchar(str[i]); 
+        _delay_ms(100);
     }
 }
 
