@@ -4,34 +4,36 @@
 
 #include "serial.h"
 
-#define BAUD 38400
-
-#define FOSC 1843000 
-
-#define UBBR (F_CPU / 16 / BAUD - 1)
-
+#define BAUD    38400
+#define F_CPU   16000000 //1843000 
+#define UBBR    ((F_CPU / 16 / BAUD) - 2)
 
 void uart_init(void){
-    UBRR0H = (unsigned char) (UBBR >> 8);
-    UBRR0L = (unsigned char) UBBR;
+    UBRR0H = (UBBR >> 8);
+    UBRR0L = UBBR;
 
-    // Enable reciever and transmitter
-    UCSR0B = (1<<RXEN0) | (1<<TXEN0);
+    // Enable transmitter
+    UCSR0B = (1 << TXEN0);
 
     // Set frame format: 8data, 2stop bit
-    UCSR0C = (1<<USBS0) | (3<<UCSZ00);
-
-    
+    UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);
 }
 
 void uart_putchar(char chr){
-	while(!(UCSR0A & (1 << UDR0E)));
-	UDR0 = chr;
+	while(! (UCSR0A & (1 << UDRE0)));
+    
+    while(1){
+        UDR0 = chr;
+        _delay_ms(1000);
+    }
 }
 
+
+/*
 char usart_getchar(void) {
     // Wait for incoming data
     while ( !(UCSR0A & ( 1 << RXEN0 )) );
     // Return the data
     return UDR0;
 }
+*/

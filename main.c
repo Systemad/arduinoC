@@ -8,24 +8,21 @@
 #include "serial.h"
 #include "testing.h"
 
+/*
+* Deluppgift 1
+* blinkLed() - Blink led, red, green or blue
+*
+* Deluppgift 2
+* 1. uart_init() - Set up UART serial
+* 2. uart_putchar() - Send char over transmit(TX)
+* 3. uart_pustr() - Print string with help of uart_putshar
+*/
 
 void main (void) {
 
-    char chr = "h";
-
-    /*
-    * Deluppgift 1
-    * blinkLed() - Blink led, red, green or blue
-    */
+    char chr = 'h';
 
     //blinkLed();
-
-    /*
-    * Deluppgift 2
-    * 1. uart_init() - Set up UART serial
-    * 2. uart_putchar() - Send char over transmit(TX)
-    * 3. uart_pustr() - Print string with help of uart_putshar
-    */
 
     uart_init();
 
