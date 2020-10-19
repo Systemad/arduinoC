@@ -14,7 +14,7 @@
 *
 * Deluppgift 2
 * - uart_init() - Set up UART serial
-* . uart_putchar() - Send char over transmit(TX)
+* - uart_putchar() - Send char over transmit(TX)
 * - uart_pustr() - Print string with help of uart_putshar
 */
 
@@ -22,7 +22,7 @@ void main (void) {
 
     char chr = 'h';
 
-    char string[50] = "firstname\r\nlastname";
+    char string[50] = "test\rstring";
 
     //blinkLed();
 
@@ -31,5 +31,6 @@ void main (void) {
     //uart_putchar(chr);
 
     uart_putstr(string);
-
+    //uart_echo();
+    uart_getchar();
 }
