@@ -6,7 +6,8 @@ SOURCES = \
 		  serial.c \
 		  testing.c
 
-PORT = /dev/ttyACM0 # Arduinons serieport — kan vara ttyACM1, kolla dmesg!
+PORT = /dev/ttyS3
+#/dev/ttyACM0 # Arduinons serieport — kan vara ttyACM1, kolla dmesg!
 
 CC = avr-gcc
 LD=avr-ld
