@@ -22,7 +22,7 @@ void main (void) {
 
     char chr = 'h';
 
-    char string[20] = "test\rstring";
+    char string[20] = "test\rstring\r";
 
     //blinkLed();
 
@@ -32,5 +32,6 @@ void main (void) {
 
     uart_putstr(string);
     uart_getchar();
-    //uart_echo();
+
+    uart_echo();
 }
