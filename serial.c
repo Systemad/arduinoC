@@ -15,7 +15,6 @@ void uart_init(void){
     UBRR0L = UBBR;
 
     // Enable transmitter and reciever
-    //UCSR0B |= (1 << RXEN0) | (1 << TXEN0);
     UCSR0B |= (1 << RXEN0) | (1 << TXEN0);
 
     // Set frame format: 8 data 1 stop bit
@@ -39,17 +38,18 @@ void uart_putstr(const char *str){
     }
 }
 
+
 char uart_getchar(void) {
-    
     // Wait for incoming data    
-    while (!(UCSR0A & (1 << RXEN0)));
+    while (!(UCSR0A & (1 << RXC0)));
+
     // Return the data
     return UDR0;
 }
 
-
 void uart_echo(void){
+
     // Assign recived character to c then pass it to uart_putchar() to print out
-    char c = uart_getchar();
-    uart_putchar(c);
+    //char c = uart_getchar();
+    uart_putchar(uart_getchar());
 }

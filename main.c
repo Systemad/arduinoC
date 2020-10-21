@@ -31,7 +31,7 @@ void main (void) {
     //uart_putchar(chr);
 
     uart_putstr(string);
-    uart_getchar();
+    //uart_getchar();
 
     uart_echo();
 }
