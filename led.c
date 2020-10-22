@@ -1,7 +1,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#include "testing.h"
+#include "led.h"
 
 void blinkLed(){
 

@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 #include "serial.h"
-#include "testing.h"
+#include "led.h"
 
 /*
 * Deluppgift 1
@@ -16,13 +16,16 @@
 * - uart_init() - Set up UART serial
 * - uart_putchar() - Send char over transmit(TX)
 * - uart_pustr() - Print string with help of uart_putshar
+*
+* Deluppgift 3
+* - uart_getchar() -  receive char from serial
+* - uart_echo() - echo / print received with purchar char from getchar
 */
 
 void main (void) {
 
     char chr = 'h';
-
-    char string[20] = "test\rstring\r";
+    char *string = "test\rstring\r";
 
     //blinkLed();
 
@@ -33,5 +36,8 @@ void main (void) {
     uart_putstr(string);
     //uart_getchar();
 
-    uart_echo();
+    // So we can write continuously 
+    while(1){
+        uart_echo();
+    }
 }
