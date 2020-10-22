@@ -4,7 +4,7 @@ BIN = lab1# namn på output-binären
 SOURCES = \
 		  main.c \
 		  serial.c \
-		  testing.c
+		  led.c
 
 PORT = /dev/ttyACM0 
 # Windows - /dev/ttyS3
